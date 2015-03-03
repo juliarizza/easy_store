@@ -1,0 +1,14 @@
+{{extend 'store_layout.html'}}
+
+<div class="row-fluid">
+    <div class="block">
+        <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">{{=request.args(0).capitalize()}}</div>
+        </div>
+        <div class="block-content collapse in">
+            <div class="span12">
+            {{=form}}                    
+            </div>
+        </div>
+    </div>
+</div>

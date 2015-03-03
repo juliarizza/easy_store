@@ -1,0 +1,62 @@
+{{extend 'store_layout.html'}}
+
+<div class="row-fluid">
+      	<div class="span12">
+      		<div class="block">
+                <div class="navbar navbar-inner block-header">
+                    <div class="muted pull-left">{{=T('View')}}</div>
+                    <div class="pull-right"><span class="muted">{{=table}}</span></div>
+                </div>
+                <div class="block-content collapse in">
+                    <div class="span12">
+                        <table class="table table-striped table-hover">
+                        	{{if table == 'product':}}
+                        	<tr>
+                        		<th>{{=T('Title')}}</th>
+                        		<th>{{=T('Price')}}</th>
+                        		<th>{{=T('Quantity in stock')}}</th>
+                        		<th>{{=T('Actions')}}</th>
+                        	</tr>
+                        	{{for product in items:}}
+                        	<tr>
+                        		<td class="span5">
+                        			<a href="#">{{=product.name}}</a>
+                        		</td>
+                        		<td class="span2">R${{='%.2f' % product.price}}</td>
+                        		<td class="span2">{{=product.quantity}}</td>
+                        		<td class="span2">
+                        			<a href="{{=URL('manage', 'remove', args=['product', product.id])}}" class="btn btn-danger btn-mini"><i class="icon-trash icon-white"></i></a>
+                                    <a href="{{=URL('manage', 'edit', args=['product', product.id])}}" class="btn btn-warning btn-mini"><i class="icon-edit icon-white"></i></a>
+                        		</td>
+                        	</tr>
+                        	{{pass}}
+                        	{{else:}}
+                        	<tr>
+                        		<th>Name</th>
+                        		<th>Actions</th>
+                        	</tr>
+                        	{{for category in items:}}
+                        	<tr>
+                        		<td class="span5">
+                        			<a href="#">{{=category.name}}</a>
+                        		</td>
+                        		<td class="span2">
+                        			<a href="{{=URL('manage', 'remove', args=['category', category.id])}}"><button type="submit" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i></button></a>
+                                    <a href="{{=URL('manage', 'edit', args=['category', category.id])}}"><button type="submit" class="btn btn-warning btn-mini"><i class="icon-edit icon-white"></i></button></a>
+                        		</td>
+                        	</tr>
+                        	{{pass}}
+                        	{{pass}}
+                        </table>
+                        {{if table == 'product':}}
+                        <a href="{{=URL('manage', 'insert', args='product')}}"><button class="btn btn-primary">{{=T('New product')}}</button></a>
+                        {{else:}}
+                        <a href="{{=URL('manage', 'insert', args='category')}}"><button class="btn btn-primary">{{=T('New category')}}</button></a>
+                        {{pass}}
+                        <hr />
+                        
+                    </div>
+                </div>
+            </div>
+      	</div>
+      </div>

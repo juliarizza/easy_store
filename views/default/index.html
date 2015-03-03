@@ -1,0 +1,27 @@
+{{extend 'store_layout.html'}}
+
+<!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Easy Store</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo tempus mauris egestas ornare ut vel metus. Donec arcu libero, placerat nec risus eget, ultricies aliquet sem.</p>
+      </div>
+
+      <hr>
+
+      <!-- Example row of columns -->
+      <div class="row-fluid">
+        <ul class="thumbnails">
+        {{for product in featured:}}
+          <li class="span4" style="background-color: white;">
+            <div class="thumbnail">
+              <img alt="" src="{{=URL('download', args=product.product_image)}}">
+              <div class="caption">
+                <h3>{{=product.name}}</h3>
+                <p>{{=product.short_description}}</p>
+                <p><a href="{{=URL('default', 'product', args=product.id)}}" class="btn btn-primary">{{=T('View')}}</a></p>
+              </div>
+            </div>
+          </li>
+        {{pass}}
+        </ul>
+      </div>

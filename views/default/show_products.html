@@ -1,0 +1,39 @@
+{{extend 'store_layout.html'}}
+
+{{
+products_list = []
+row_products = []
+for x in range(len(products)):
+    if x%3 == 0 and x != 0:
+      row_products.append(products[x])
+      products_list.append(row_products)
+      row_products = []
+    else:
+      row_products.append(products[x])
+    pass
+
+    if x == len(products)-1 and row_products != []:
+      products_list.append(row_products)
+    pass
+pass
+}}
+
+<!-- Example row of columns -->
+{{for row in products_list:}}
+<div class="row-fluid">
+  <ul class="thumbnails">
+  {{for product in row:}}
+    <li class="span3">
+      <div class="thumbnail">
+        <img alt="" src="{{=URL('download', args=product.product_image)}}">
+        <div class="caption">
+          <h3>{{=product.name}}</h3>
+          <p>{{=product.short_description}}</p>
+          <p><a href="{{=URL('default', 'product', args=product.id)}}" class="btn btn-primary">{{=T('View')}}</a></p>
+        </div>
+      </div>
+    </li>
+  {{pass}}
+  </ul>
+</div>
+{{pass}}

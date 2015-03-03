@@ -1,0 +1,52 @@
+{{extend 'store_layout.html'}}
+
+<script type="text/javascript">
+	$(function(){
+		$('#paypal_form').submit();
+	});
+</script>
+
+<div class="row-fluid">
+	<div class="span12">
+		<div class="block">
+		<div class="navbar navbar-inner block-header">
+              <div class="muted pull-left">{{=T('Paypal Payment')}}</div>
+          </div>
+          <div class="block-content collapse in">
+              <div class="span12">
+                  
+				<h3>{{=T('Wait a moment. We are redirecting you to paypal system.')}}</h3>
+
+				<form id="paypal_form" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+					<!-- Tipo de botão -->
+					<input type="hidden" name="cmd" value="_xclick" />
+
+					<!-- Vendedor e URL de retorno -->
+					<input type="hidden" name="business" value="{{=paypal_id}}" />
+					<input type="hidden" name="return" value="{{=paypal_return_url}}" />
+					<input type="hidden" name="notify_url" value="{{=ipn_handler}}" />
+					<input type="hidden" name="upload" value="1" />
+					<input type="hidden" name="display" value="1" />
+
+					<!-- Internacionalização e localização das páginas de pagamento -->
+					<input type="hidden" name="charset" value="utf-8" />
+					<input type="hidden" name="lc" value="BR" />
+					<input type="hidden" name="country_code" value="BR" />
+					<input type="hidden" name="currency_code" value="BRL" />
+
+					<!-- Informações sobre o produto -->
+					<input type="hidden" name="invoice" value="{{=session.pending['id']}}" />
+					<input type="hidden" name="amount" value="{{=session.pending['ammount']}}" />
+					<input type="hidden" name="item_name" value="{{=response.title}}" />
+
+					<!-- Botão de submit -->
+					<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+					<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif"
+					width="1" height="1"> 
+
+				</form>
+			</div>
+          </div>
+		</div>
+	</div>
+</div>

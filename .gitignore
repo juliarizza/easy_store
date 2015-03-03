@@ -1,0 +1,19 @@
+# backup and log files and compiled sources
+*.pyc
+*.bak
+*.*~
+*.log
+*.swp
+*.table
+
+# sqlite database files
+*.sqlite
+
+# web2py cache, errors and sessions files
+cache/*
+errors/*
+sessions/*
+cache/*
+uploads/*
+databases/*
+

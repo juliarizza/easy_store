@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{=response.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{=URL('static', 'css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <script src="{{=URL('static', 'js/jquery.js')}}"></script>
+    <script src="{{=URL('static', 'js/bootstrap.min.js')}}"></script>
+    <link href="{{=URL('static', 'css/style.css')}}" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="muted">{{=response.title}}</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{{=URL('default', 'index')}}">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {{=T('Categories')}}
+                    <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        {{for category in categories:}}
+                        <li><a href="{{=URL('default', 'show_products', vars={'category':category.id})}}">{{=category.name}}</a></li>
+                        {{pass}}
+                    </ul>
+                </li>
+                
+                <li><a href="{{=URL('default', 'checkout')}}">{{=T('Shopping Cart')}} <span class="badge badge-important">{{=len(session.cart)}}</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div>
+
+      {{include}}
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; {{=response.title}} 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
