@@ -29,3 +29,5 @@ python web2py.py
 4. For the administrative interface, access /easy_store/manage/index and enter username 'admin' and password 'admin'
 
 **Contribute!**
+
+Copyright (c) 2015 Júlia Rizza & licensed under The MIT License (MIT)
