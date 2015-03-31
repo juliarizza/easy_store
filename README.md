@@ -6,13 +6,25 @@ This store app is based on Massimo di Pierro's EStore (https://github.com/mdipie
 
 ## Features
 * Product registration
-* Store data setup
+* Store data setup 
 * Shopping cart
 * Paypal integration
 
 ## TODOs
 * PagSeguro integration
+* Moip integration
+* Change layout to bootstrap 3.x
+* NF-e integration (Brazilian tax collection system)
+* Mode catalog
+* Create a module system (to features, like facebook, payments, shipping, banners, etc.) 
+* Create a theme system 
 * Products Specifications
+* Products Image Gallery
+* Products Combinations
+* Store Localization (taxes, taxes rules, currencies, translation, countries, etc.)
+* SEO
+* Orders
+* Multiple delivery addresses
 * Users Reviews
 * A most secure shopping cart
 
