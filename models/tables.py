@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
 from gluon.tools import prettydate
 
-# client info
-## validators
-db.auth_user.birth_date.requires = IS_DATE()
-db.auth_user.genre.requires = IS_IN_SET({1:T('Male'), 2:T('Female')})
-db.auth_user.cpf.requires = IS_NOT_EMPTY()
-
 # shipment info
 db.define_table('address',
     Field('user_id', 'reference auth_user', label=T('User')),
@@ -20,6 +14,8 @@ db.define_table('address',
     Field('city', label=T('City')),
     Field('adr_state', label=T('State'))
     )
+
+
 ## validators
 db.address.user_id.requires = IS_IN_DB(db, 'auth_user.id', '%(first_name)s %(last_name)s')
 db.address.receiver.requires = IS_NOT_EMPTY()
@@ -53,6 +49,8 @@ db.define_table('product',
     auth.signature,
     format = '%(name)s'
 	)
+
+
 ## validators
 db.product.name.requires = IS_NOT_EMPTY()
 db.product.category.requires = IS_EMPTY_OR(IS_IN_DB(db, 'category.id', '%(name)s'))
