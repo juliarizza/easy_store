@@ -40,21 +40,42 @@ categories = db(db.category).select()
 # products
 db.define_table('product',
 	Field('name', label=T('Name')),
-	Field('category', 'reference category', label=T('Category')),
     Field('short_description', length=256, label=T('Short description')),
     Field('description', 'text', label=T('Description')),
-    Field('product_image', 'upload', label=T('Image')),
-    Field('quantity', 'integer', default=0, label=T('Quantity in stock')),
-    Field('price', 'double', default=0, label=T('Price')),
+    Field('tax', 'decimal(7,2)', label=T('Tax')),
+    Field('price', 'decimal(7,2)', default=0, label=T('Price')),
     auth.signature,
     format = '%(name)s'
 	)
 
-
 ## validators
 db.product.name.requires = IS_NOT_EMPTY()
-db.product.category.requires = IS_EMPTY_OR(IS_IN_DB(db, 'category.id', '%(name)s'))
-db.product.product_image.requires = IS_EMPTY_OR(IS_IMAGE())
+
+# product category
+db.define_table('product_category',
+    Field('product_id', 'reference product'),
+    Field('category_id', 'reference category')
+    )
+db.product_category.product_id.requires = IS_IN_DB(db, 'product.id', '%(name)s')
+db.product_category.category_id.requires = IS_IN_DB(db, 'category.id', '%(name)s')
+
+#product images
+db.define_table('product_image',
+    Field('image', 'upload'),
+    Field('product_id', 'reference product'),
+    Field('featured', 'boolean', default=False)
+    )
+db.product_image.product_id.requires = IS_IN_DB(db, 'product.id', '%(name)s')
+
+#product images
+db.define_table('product_stok',
+    Field('product_id', 'reference product'),
+    Field('quantity', 'integer'),
+    Field('min_quantity', 'integer'),
+    )
+db.product_stok.product_id.requires = IS_IN_DB(db, 'product.id', '%(name)s')
+db.product_stok.quantity.requires = IS_NOT_EMPTY()
+db.product_stok.min_quantity.requires = IS_NOT_EMPTY()
 
 # products specifications
 db.define_table('specification',
