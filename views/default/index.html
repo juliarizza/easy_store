@@ -1,27 +1,409 @@
-{{extend 'store_layout.html'}}
+{{extend 'layout.html'}}
 
-<!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Easy Store</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo tempus mauris egestas ornare ut vel metus. Donec arcu libero, placerat nec risus eget, ultricies aliquet sem.</p>
-      </div>
-
-      <hr>
-
-      <!-- Example row of columns -->
-      <div class="row-fluid">
-        <ul class="thumbnails">
-        {{for product in featured:}}
-          <li class="span4" style="background-color: white;">
-            <div class="thumbnail">
-              <img alt="" src="{{=URL('download', args=product.product_image)}}">
-              <div class="caption">
-                <h3>{{=product.name}}</h3>
-                <p>{{=product.short_description}}</p>
-                <p><a href="{{=URL('default', 'product', args=product.id)}}" class="btn btn-primary">{{=T('View')}}</a></p>
+          <div class="features_items"><!--features_items-->
+            <h2 class="title text-center">Produtos em Destaque</h2>
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                      <img src="images/home/product1.jpg" alt="" />
+                      <h2>$56</h2>
+                      <p>Lorem ipsum dolor sit amet</p>
+                      <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                    </div>
+                    <div class="product-overlay">
+                      <div class="overlay-content">
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                    </div> 
+                </div>
+              </div>
+            </div>           
+          </div><!--features_items-->
+          
+          <div class="category-tab"><!--category-tab-->
+            <div class="col-sm-12">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#tshirt" data-toggle="tab">Lorem ipsum</a></li>
+                <li><a href="#blazers" data-toggle="tab">Lorem ipsum</a></li>
+                <li><a href="#sunglass" data-toggle="tab">Lorem ipsum</a></li>
+                <li><a href="#kids" data-toggle="tab">Lore</a></li>
+                <li><a href="#poloshirt" data-toggle="tab">Lorem ipsum</a></li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane fade active in" id="tshirt" >
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery1.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery2.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery3.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery4.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tab-pane fade" id="blazers" >
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery4.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery3.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery2.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery1.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tab-pane fade" id="sunglass" >
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery3.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery4.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery1.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery2.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tab-pane fade" id="kids" >
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery1.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery2.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery3.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery4.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tab-pane fade" id="poloshirt" >
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery2.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery4.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery3.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="images/home/gallery1.jpg" alt="" />
+                        <h2>$56</h2>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </li>
-        {{pass}}
-        </ul>
-      </div>
+          </div><!--/category-tab-->
+          
+          <div class="recommended_items"><!--recommended_items-->
+            <h2 class="title text-center">recommended items</h2>
+            
+            <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="item active"> 
+                  <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                      <div class="single-products">
+                        <div class="productinfo text-center">
+                          <img src="images/home/recommend1.jpg" alt="" />
+                          <h2>$56</h2>
+                          <p>Lorem ipsum dolor sit amet</p>
+                          <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                      <div class="single-products">
+                        <div class="productinfo text-center">
+                          <img src="images/home/recommend2.jpg" alt="" />
+                          <h2>$56</h2>
+                          <p>Lorem ipsum dolor sit amet</p>
+                          <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                      <div class="single-products">
+                        <div class="productinfo text-center">
+                          <img src="images/home/recommend3.jpg" alt="" />
+                          <h2>$56</h2>
+                          <p>Lorem ipsum dolor sit amet</p>
+                          <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">  
+                  <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                      <div class="single-products">
+                        <div class="productinfo text-center">
+                          <img src="images/home/recommend1.jpg" alt="" />
+                          <h2>$56</h2>
+                          <p>Lorem ipsum dolor sit amet</p>
+                          <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                      <div class="single-products">
+                        <div class="productinfo text-center">
+                          <img src="images/home/recommend2.jpg" alt="" />
+                          <h2>$56</h2>
+                          <p>Lorem ipsum dolor sit amet</p>
+                          <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                      <div class="single-products">
+                        <div class="productinfo text-center">
+                          <img src="images/home/recommend3.jpg" alt="" />
+                          <h2>$56</h2>
+                          <p>Lorem ipsum dolor sit amet</p>
+                          <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar ao Orçamento</a>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                <i class="fa fa-angle-right"></i>
+                </a>      
+            </div>
+          </div><!--/recommended_items-->
