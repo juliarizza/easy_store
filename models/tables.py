@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
 from gluon.tools import prettydate
 
-# client info
-## validators
-db.auth_user.birth_date.requires = IS_DATE()
-db.auth_user.genre.requires = IS_IN_SET({1:T('Male'), 2:T('Female')})
-db.auth_user.cpf.requires = IS_NOT_EMPTY()
-
-# shipment info
+# customer address
 db.define_table('address',
     Field('user_id', 'reference auth_user', label=T('User')),
     Field('receiver', label=T('Addressee')),
-    Field('adr_type', label=T('Address Type')),
+    Field('adr_shipping', 'boolean', default=False, label=T('Shipping Address')),
     Field('zip_code', 'integer', label=T('Zip Code')),
     Field('address', label=T('Address')),
     Field('adr_number', 'integer', label=T('Number')),
@@ -20,10 +14,10 @@ db.define_table('address',
     Field('city', label=T('City')),
     Field('adr_state', label=T('State'))
     )
+
 ## validators
 db.address.user_id.requires = IS_IN_DB(db, 'auth_user.id', '%(first_name)s %(last_name)s')
 db.address.receiver.requires = IS_NOT_EMPTY()
-db.address.adr_type.requires = IS_IN_SET({1:T('Comercial'), 2:T('Residential')})
 db.address.address.requires = IS_NOT_EMPTY()
 db.address.adr_number.requires = IS_NOT_EMPTY()
 db.address.neighborhood.requires = IS_NOT_EMPTY()
@@ -34,29 +28,54 @@ db.address.adr_state.requires = IS_NOT_EMPTY()
 db.define_table('category',
 	Field('name', label=T('Name')),
 	Field('description', 'text', label=T('Description')),
+    Field('parent_category', 'integer'),
 	format = '%(name)s'
 	)
 ## validators
 db.category.name.requires = IS_NOT_EMPTY()
-## layout
+db.category.parent_category.requires = IS_EMPTY_OR(IS_IN_DB(db, 'category.id','%(name)s'))
+
 categories = db(db.category).select()
 
 # products
 db.define_table('product',
 	Field('name', label=T('Name')),
-	Field('category', 'reference category', label=T('Category')),
     Field('short_description', length=256, label=T('Short description')),
     Field('description', 'text', label=T('Description')),
-    Field('product_image', 'upload', label=T('Image')),
-    Field('quantity', 'integer', default=0, label=T('Quantity in stock')),
-    Field('price', 'double', default=0, label=T('Price')),
+    Field('tax', 'decimal(7,2)', label=T('Tax')),
+    Field('price', 'decimal(7,2)', default=0, label=T('Price')),
     auth.signature,
     format = '%(name)s'
 	)
+
 ## validators
 db.product.name.requires = IS_NOT_EMPTY()
-db.product.category.requires = IS_EMPTY_OR(IS_IN_DB(db, 'category.id', '%(name)s'))
-db.product.product_image.requires = IS_EMPTY_OR(IS_IMAGE())
+
+# product category
+db.define_table('product_category',
+    Field('product_id', 'reference product'),
+    Field('category_id', 'reference category')
+    )
+db.product_category.product_id.requires = IS_IN_DB(db, 'product.id', '%(name)s')
+db.product_category.category_id.requires = IS_IN_DB(db, 'category.id', '%(name)s')
+
+#product images
+db.define_table('product_image',
+    Field('image', 'upload'),
+    Field('product_id', 'reference product'),
+    Field('featured', 'boolean', default=False)
+    )
+db.product_image.product_id.requires = IS_IN_DB(db, 'product.id', '%(name)s')
+
+#product images
+db.define_table('product_stok',
+    Field('product_id', 'reference product'),
+    Field('quantity', 'integer'),
+    Field('min_quantity', 'integer'),
+    )
+db.product_stok.product_id.requires = IS_IN_DB(db, 'product.id', '%(name)s')
+db.product_stok.quantity.requires = IS_NOT_EMPTY()
+db.product_stok.min_quantity.requires = IS_NOT_EMPTY()
 
 # products specifications
 db.define_table('specification',
