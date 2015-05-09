@@ -13,13 +13,13 @@ This store app is based on Massimo di Pierro's EStore (https://github.com/mdipie
 ## TODOs
 * PagSeguro integration
 * Moip integration
-* Change layout to bootstrap 3.x
 * NF-e integration (Brazilian tax collection system)
 * Mode catalog
 * Create a module system (to features, like facebook, payments, shipping, banners, etc.) 
 * Create a theme system 
 * Products Specifications
 * Products Image Gallery
+* Product Image Thumbnails
 * Products Combinations
 * Store Localization (taxes, taxes rules, currencies, translation, countries, etc.)
 * SEO
@@ -38,7 +38,7 @@ git clone https://github.com/juliarizza/easy_store
 python web2py.py
 ```
 3. Access /easy_store
-4. For the administrative interface, access /easy_store/manage/index and enter username 'admin' and password 'admin'
+4. For the administrative interface, access /easy_store/adminpanel/index and enter username 'admmin@adm.in' and password 'admin'
 
 **Contribute!**
 
