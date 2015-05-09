@@ -42,7 +42,6 @@ auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
 
-
 from gluon.tools import prettydate
 
 # customer address
@@ -79,6 +78,21 @@ db.define_table('category',
 db.category.name.requires = IS_NOT_EMPTY()
 db.category.parent_category.requires = IS_EMPTY_OR(IS_IN_DB(db, 'category.id','%(name)s'))
 
+# carriers
+db.define_table('carrier',
+    Field('name', label=T('Name')),
+    Field('description', 'text', label=T('Description')),
+    format = '%(name)s'
+    )
+
+db.define_table('carrier_tax',
+    Field('name', label=T('Name')),
+    Field('tax', 'decimal(7,2)', label=T('Tax')),
+    Field('carrier_id', 'reference carrier', label=T('Carrier ID')),
+    format = '%(name)s'
+    )
+db.carrier_tax.carrier_id.requires = IS_IN_DB(db, 'carrier.id','%(name)s')
+
 # suppliers
 db.define_table('supplier',
     Field('name', label=T('Name')),
@@ -105,11 +119,12 @@ db.define_table('product',
     Field('product_stok', 'integer', default=0, label=T('Quantity')),
     Field('featured_image', 'upload', label=T('Featured Image')),
     Field('default_category', 'reference category', label=T('Default Category')),
-    Field('default_supplier', 'reference category', label=T('Default Supplier')),
+    Field('default_supplier', 'reference supplier', label=T('Default Supplier')),
     auth.signature,
     format = '%(name)s'
     )
 db.product.default_category.requires = IS_IN_DB(db, 'category.id','%(name)s')
+db.product.default_supplier.requires = IS_IN_DB(db, 'supplier.id','%(name)s')
 
 ## validators
 db.product.name.requires = IS_NOT_EMPTY()
@@ -154,6 +169,32 @@ db.define_table('specification',
     )
 ## validators
 db.specification.product.requires = IS_IN_DB(db, 'product.id', '%(name)s')
+
+db.define_table('order_status',
+    Field('status_text'),
+    )
+
+db.define_table('order'
+    Field('user_id', 'reference auth_user'),
+    Field('order_date', 'datetime'),
+    Field('order_carrier', 'reference carrier'),
+    Field('order_carrier_tax'),
+    Field('order_value'),
+    Field('order_status_id', 'reference order_status'),
+    )
+
+db.define_table('order_item',
+    Field('item_name'),
+    Field('item_quantity'),
+    Field('item_value', 'decimal(7,2)'),
+    Field('item_total_value', 'decimal(7,2)'),
+    )
+
+db.define_table('order_history',
+    Field('order_history_date', 'datetime'),
+    Field('order_id', 'reference order'),
+    Field('order_history_description'),
+    )
 
 # reviews
 db.define_table('review',

@@ -29,10 +29,19 @@ def user_groups():
     groups_grid = SQLFORM.grid(db.auth_membership, csv=False)
     return locals()
 
-
 @auth.requires_membership('admin')
 def suppliers():
     suppliers_grid  = SQLFORM.grid(db.supplier, csv=False)
+    return locals()
+
+@auth.requires_membership('admin')
+def carriers():
+    carriers_grid  = SQLFORM.grid(db.carrier, csv=False) 
+    return locals()
+
+@auth.requires_membership('admin')
+def carriers_tax():
+    carriers_tax_grid  = SQLFORM.grid(db.carrier_tax, csv=False) 
     return locals()
 
 @auth.requires_membership('admin')
@@ -64,9 +73,7 @@ def costumer_groups():
 def shopping_carts(): 
     return locals()
 
-@auth.requires_membership('admin')
-def shipping_carriers(): 
-    return locals()
+
 
 @cache.action()
 def download():
