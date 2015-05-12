@@ -174,7 +174,7 @@ db.define_table('order_status',
     Field('status_text'),
     )
 
-db.define_table('order'
+db.define_table('product_order',
     Field('user_id', 'reference auth_user'),
     Field('order_date', 'datetime'),
     Field('order_carrier', 'reference carrier'),
@@ -192,7 +192,7 @@ db.define_table('order_item',
 
 db.define_table('order_history',
     Field('order_history_date', 'datetime'),
-    Field('order_id', 'reference order'),
+    Field('order_id', 'reference product_order'),
     Field('order_history_description'),
     )
 
