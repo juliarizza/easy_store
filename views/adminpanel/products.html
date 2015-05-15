@@ -1,0 +1,40 @@
+{{extend 'layoutadmin.html'}}
+<!--Start Breadcrumb-->
+<div class="row">
+	<div id="breadcrumb" class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><a href="{{=URL(c='adminpanel', f='index')}}">Home</a></li>
+			<li><a href="#">{{=T("Products")}}</a></li>
+		</ol>
+	</div>
+</div>
+<!--End Breadcrumb-->
+<!--Start Dashboard 1-->
+<div id="dashboard-header" class="row">
+	<div class="row clearfix">
+	  <div class="col-md-12 column">
+		<div class="col-xs-12">
+			<div class="box ui-draggable ui-droppable">
+				<div class="box-header">
+					<div class="box-name">
+						<i class="fa fa-table"></i>
+						<span>{{=T("Products")}}</span>
+					</div>
+					<div class="box-icons">
+						<a class="collapse-link">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a class="expand-link">
+							<i class="fa fa-expand"></i>
+						</a>
+					</div>
+					<div class="no-move"></div>
+				</div>
+				<div class="box-content no-padding">
+					{{=products_grid}}
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+</div>
