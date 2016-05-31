@@ -9,8 +9,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Loja Virtual de Toucas Cirurgicas e Toucas de cozinhar">
+    <meta name="author" content="Rafael Toguko Venancio">
     <title>{{=response.title or request.application}}</title>
     <!--[if !HTML5]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge{{=not request.is_local and ',chrome=1' or ''}}">
@@ -71,8 +71,8 @@
           <div class="col-sm-6">
             <div class="contactinfo">
               <ul class="nav nav-pills">
-                <li><a href="#"><i class="fa fa-phone"></i> +55 (51) 12345678</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> contact@easystore.com</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i>  (21)  98771-1632</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i> contacto@tocadatouca.com</a></li>
               </ul>
             </div>
           </div>
@@ -100,12 +100,12 @@
           <div class="col-sm-8">
             <div class="shop-menu pull-right">
               <ul class="nav navbar-nav">
-                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
                 {{if not auth.is_logged_in():}}
-                  <li><a href="{{=URL(c='default', f='user')}}"><i class="fa fa-lock"></i> Login</a></li>
-                  <li><a href="{{=URL(c='default', f='register')}}"><i class="fa fa-lock"></i> Register</a></li>
+                  <li><a href="{{=URL(c='default', f='user')}}"><i class="fa fa-lock"></i> Entrar</a></li>
+                  <li><a href="{{=URL(c='default', f='register')}}"><i class="fa fa-lock"></i> Cadastrar</a></li>
                 {{else:}}
-                  <li><a href="{{=URL(c='default', f='profile')}}"><i class="fa fa-lock"></i> Profile</a></li>
+                  <li><a href="{{=URL(c='default', f='profile')}}"><i class="fa fa-lock"></i> Perfil</a></li>
                 {{pass}}
               </ul>
             </div>
@@ -128,12 +128,12 @@
             </div>
             <div class="mainmenu pull-left">
               <ul class="nav navbar-nav collapse navbar-collapse">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html" class="active">Principal</a></li>
                 <li class="dropdown"><a href="#">Produtos<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Listagem</a></li>
                     <li><a href="product-details.html">Detalhes</a></li> 
-                    <li><a href="checkout.html">Checkout</a></li> 
+                    <li><a href="checkout.html">Finalizar</a></li>
                     <li><a href="cart.html">Carrinho</a></li> 
                     <li><a href="login.html">Tela de Login</a></li> 
                                     </ul>
@@ -187,49 +187,21 @@
         <div class="row">
           <div class="col-sm-2">
             <div class="single-widget">
-              <h2>Lorem ipsum</h2>
+              <h2>Touca Hospitalar</h2>
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
+                <li><a href="#">Feminina Simples</a></li>
+                <li><a href="#">Feminina Decorada</a></li>
+                <li><a href="#">Masculina</a></li>
               </ul>
             </div>
           </div>
           <div class="col-sm-2">
             <div class="single-widget">
-              <h2>Lorem ipsum</h2>
+              <h2>Touca Culinaria</h2>
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="single-widget">
-              <h2>Lorem ipsum</h2>
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="single-widget">
-              <h2>Lorem ipsum</h2>
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
-                <li><a href="#">Lorem ipsum</a></li>
+                <li><a href="#">Feminina Simples</a></li>
+                <li><a href="#">Feminina Decorada</a></li>
+                <li><a href="#">Masculina</a></li>
               </ul>
             </div>
           </div>
