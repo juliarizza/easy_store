@@ -64,6 +64,7 @@
 </head><!--/head-->
 
 <body>
+{{T.force('pt-br')}} <!-- Web2py command to force pt-br -->
   <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
       <div class="container">
@@ -131,14 +132,14 @@
                 <li><a href="{{=URL(c='default', f='index')}}" class="active"> {{=T("Home")}}</a></li>
                 <li class="dropdown"><a href="{{=URL(c='default', f='products')}}">{{=T("Products")}}<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Listagem</a></li>
+                                        <li><a href="{{=URL(c='default', f='shop')}}">Listagem</a></li>
                     <li><a href="{{=URL(c='default', f='product-details')}}">{{=T("Details")}}</a></li>
                     <li><a href="{{=URL(c='default', f='checkout')}}">{{=T("Checkout")}}</a></li>
                     <li><a href="{{=URL(c='default', f='cart')}}">{{=T("Cart")}}</a></li>
                     <li><a href="{{=URL(c='default', f='login')}}">{{=T("Login")}}</a></li>
                                     </ul>
                                 </li> 
-                <li><a href="{{=URL(c='default', f='contact')}}">Fale Conosco</a></li>
+                <li><a href="{{=URL(c='default', f='contact')}}">{{=T("Contact")}}</a></li>
               </ul>
             </div>
           </div>
@@ -237,9 +238,9 @@
             <div class="single-widget">
               <h2>ALorem ipsum</h2>
               <form action="#" class="searchform">
-                <input type="text" placeholder="Your email address" />
+                <input type="text" placeholder="{{=T("Your email address")}}" />
                 <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                <p>Lorem ipsum <br /Lorem ipsum...</p>
+                <p>{{=T("Stay tunned in our new releases")}}</p>
               </form>
             </div>
           </div>
