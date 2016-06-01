@@ -66,6 +66,7 @@
 'Controller': 'Controlador',
 'Copyright': 'Copyright',
 'Costumers': 'Clientes',
+'Contact': 'Fale Conosco',
 'CSV': 'CSV',
 'CSV (hidden cols)': 'CSV (hidden cols)',
 'Current request': 'Requisição atual',
@@ -301,4 +302,6 @@
 'You are successfully running web2py.': 'Você está executando o web2py com sucesso.',
 'You can modify this application and adapt it to your needs': 'Você pode modificar esta aplicação e adaptá-la às suas necessidades',
 'You visited the url %s': 'Você acessou a url %s',
+'Your email address': 'Insira seu email',
+'Stay tunned in our new releases': 'Insira seu e - mail e fique por dentro das nossas novidades.'
 }
