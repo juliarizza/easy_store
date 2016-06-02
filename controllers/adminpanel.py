@@ -73,8 +73,6 @@ def costumer_groups():
 def shopping_carts(): 
     return locals()
 
-
-
 @cache.action()
 def download():
     """
