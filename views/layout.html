@@ -64,6 +64,7 @@
 </head><!--/head-->
 
 <body>
+{{T.force('pt-br')}} <!-- Web2py command to force pt-br -->
   <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
       <div class="container">
@@ -71,8 +72,8 @@
           <div class="col-sm-6">
             <div class="contactinfo">
               <ul class="nav nav-pills">
-                <li><a href="#"><i class="fa fa-phone"></i> +55 (51) 12345678</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> contact@easystore.com</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i> (21) 98771-1632</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i> contato@tocadatouca.com.br</a></li>
               </ul>
             </div>
           </div>
@@ -100,12 +101,12 @@
           <div class="col-sm-8">
             <div class="shop-menu pull-right">
               <ul class="nav navbar-nav">
-                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="{{=URL(c='default', f='cart')}}"><i class="fa fa-shopping-cart"></i> {{=T("Cart")}}</a></li>
                 {{if not auth.is_logged_in():}}
-                  <li><a href="{{=URL(c='default', f='user')}}"><i class="fa fa-lock"></i> Login</a></li>
-                  <li><a href="{{=URL(c='default', f='register')}}"><i class="fa fa-lock"></i> Register</a></li>
+                  <li><a href="{{=URL(c='default', f='user')}}"><i class="fa fa-lock"></i> {{=T("Login")}}</a></li>
+                  <li><a href="{{=URL(c='default', f='register')}}"><i class="fa fa-lock"></i> {{=T("Register")}}</a></li>
                 {{else:}}
-                  <li><a href="{{=URL(c='default', f='profile')}}"><i class="fa fa-lock"></i> Profile</a></li>
+                  <li><a href="{{=URL(c='default', f='profile')}}"><i class="fa fa-lock"></i> {{=T("Register")}}Profile</a></li>
                 {{pass}}
               </ul>
             </div>
@@ -128,23 +129,23 @@
             </div>
             <div class="mainmenu pull-left">
               <ul class="nav navbar-nav collapse navbar-collapse">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li class="dropdown"><a href="#">Produtos<i class="fa fa-angle-down"></i></a>
+                <li><a href="{{=URL(c='default', f='index')}}" class="active"> {{=T("Home")}}</a></li>
+                <li class="dropdown"><a href="{{=URL(c='default', f='products')}}">{{=T("Products")}}<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Listagem</a></li>
-                    <li><a href="product-details.html">Detalhes</a></li> 
-                    <li><a href="checkout.html">Checkout</a></li> 
-                    <li><a href="cart.html">Carrinho</a></li> 
-                    <li><a href="login.html">Tela de Login</a></li> 
+                                        <li><a href="{{=URL(c='default', f='shop')}}">Listagem</a></li>
+                    <li><a href="{{=URL(c='default', f='product-details')}}">{{=T("Details")}}</a></li>
+                    <li><a href="{{=URL(c='default', f='checkout')}}">{{=T("Checkout")}}</a></li>
+                    <li><a href="{{=URL(c='default', f='cart')}}">{{=T("Cart")}}</a></li>
+                    <li><a href="{{=URL(c='default', f='login')}}">{{=T("Login")}}</a></li>
                                     </ul>
                                 </li> 
-                <li><a href="contact-us.html">Fale Conosco</a></li>
+                <li><a href="{{=URL(c='default', f='contact')}}">{{=T("Contact")}}</a></li>
               </ul>
             </div>
           </div>
           <div class="col-sm-3">
             <div class="search_box pull-right">
-              <input type="text" placeholder="Search"/>
+              <input type="text" placeholder="{{=T("Search")}}"/>
             </div>
           </div>
         </div>
@@ -237,9 +238,9 @@
             <div class="single-widget">
               <h2>ALorem ipsum</h2>
               <form action="#" class="searchform">
-                <input type="text" placeholder="Your email address" />
+                <input type="text" placeholder="{{=T("Your email address")}}" />
                 <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                <p>Lorem ipsum <br /Lorem ipsum...</p>
+                <p>{{=T("Stay tunned in our new releases")}}</p>
               </form>
             </div>
           </div>

@@ -4,11 +4,13 @@ if not session.cart:
     # instantiate new cart
     session.cart, session.balance = [], 0
 
+
 def index():
     now = datetime.datetime.now()
     span = datetime.timedelta(days=10)
-    product_list = db(db.product.created_on >= (now-span)).select(limitby=(0,3), orderby=~db.product.created_on)
+    product_list = db(db.product.created_on >= (now-span)).select(limitby=(0, 3), orderby=~db.product.created_on)
     return locals()
+
 
 def user():
     """
@@ -26,6 +28,7 @@ def user():
     to decorate functions that need access control
     """
     return dict(form=auth())
+
 
 def register():
     form = auth.register()
